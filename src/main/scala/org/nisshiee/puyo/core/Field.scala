@@ -1,13 +1,12 @@
 package org.nisshiee.puyo.core
 
-import scalaz._
-import Scalaz._
+import scalaz._, Scalaz._
 
-// TODO: たぶんこれもcase classやめてコンストラクタの隠ぺいが必要
-case class Field(
-  width: Int,
-  height: Int,
-  puyos: Map[InFieldPoint, Puyo]
+class Field private(
+  val width: Int,
+  val height: Int,
+  val deadLine: Int,
+  val puyos: Map[InFieldPoint, Puyo]
 ) {
   def apply(ifp: InFieldPoint) = puyos get ifp
 }

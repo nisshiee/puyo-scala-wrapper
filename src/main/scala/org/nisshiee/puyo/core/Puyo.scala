@@ -1,7 +1,6 @@
 package org.nisshiee.puyo.core
 
-import scalaz._
-import Scalaz._
+import scalaz._, Scalaz._
 
 sealed trait Puyo
 case object Blue extends Puyo

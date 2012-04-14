@@ -1,7 +1,6 @@
 package org.nisshiee.puyo.core
 
-import scalaz._
-import Scalaz._
+import scalaz._, Scalaz._
 
 object InFieldPoints {
   import Points._
@@ -18,7 +17,7 @@ class InFieldPoint private(val p: Point) {
 }
 
 object InFieldPoint {
-  def apply(f: Field, p: Point) =
+  def check(p: Point, f: Field) =
     (0 <= p.x, p.x < f.width, 0 <= p.y, p.y < f.height) match {
       case (true, true, true, true) => new InFieldPoint(p).some
       case _ => none[InFieldPoint]

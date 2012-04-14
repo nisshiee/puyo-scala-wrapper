@@ -1,7 +1,6 @@
 package org.nisshiee.puyo.core
 
-import scalaz._
-import Scalaz._
+import scalaz._, Scalaz._
 
 object Points {
   implicit lazy val PointShow = shows[Point] {
@@ -28,5 +27,5 @@ case class Point(x: Int, y: Int) {
 
   def -(p: => Point) = this |+| -p
 
-  def in(implicit f: Field) = InFieldPoint(f, this)
+  def in(implicit f: Field) = InFieldPoint.check(this, f)
 }
