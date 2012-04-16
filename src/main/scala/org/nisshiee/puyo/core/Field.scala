@@ -2,7 +2,7 @@ package org.nisshiee.puyo.core
 
 import scalaz._, Scalaz._
 
-class Field private(
+class Field private (
   val width: Int,
   val height: Int,
   val deadLine: Int,
