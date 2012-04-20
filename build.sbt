@@ -11,6 +11,7 @@ libraryDependencies := Seq(
   ,"com.github.scala-incubator.io" %% "scala-io-core" % "0.3.0"
   ,"com.github.scala-incubator.io" %% "scala-io-file" % "0.3.0"
   ,"org.specs2" %% "specs2" % "1.7.1" % "test"
+  ,"org.mockito" % "mockito-all" % "1.9.0" % "test"
   ,"junit" % "junit" % "4.10" % "test"
   ,"org.pegdown" % "pegdown" % "1.1.0" % "test"
 )
