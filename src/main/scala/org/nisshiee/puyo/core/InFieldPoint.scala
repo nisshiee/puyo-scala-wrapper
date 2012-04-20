@@ -10,10 +10,17 @@ object InFieldPoints {
   implicit lazy val InFieldPointEqual = equalBy[InFieldPoint, Point](_.p)
 }
 
-class InFieldPoint private(val p: Point) {
+class InFieldPoint private[core] (val p: Point) {
   import InFieldPoints._
   
   override def toString = this.shows
+
+  override def equals(o: Any) = o match {
+    case ifp: InFieldPoint => this ≟ ifp
+    case _ => false
+  }
+
+  override def hashCode = p.hashCode
 }
 
 object InFieldPoint {
