@@ -7,7 +7,7 @@ import scalaz._, Scalaz._
 import jp.ac.nagoya_u.is.ss.kishii.usui.system.game.{ Field => JField }
 import jp.ac.nagoya_u.is.ss.kishii.usui.system.storage.PuyoType
 
-class FieldTest extends Specification with Mockito { def is =
+class FieldTest extends Specification { def is =
 
   "Fieldクラスのテスト"                                     ^
     "fieldJSのテスト"                                       ^
@@ -21,7 +21,7 @@ class FieldTest extends Specification with Mockito { def is =
                                                             p^
                                                             end
 
-  case class JMock() {
+  case class JMock() extends Mockito {
     val jw = mock[JFieldWrapper]
     jw.deadLine returns 12
     jw.height returns 14
