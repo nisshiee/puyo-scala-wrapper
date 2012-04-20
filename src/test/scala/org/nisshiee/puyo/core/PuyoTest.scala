@@ -2,7 +2,7 @@ package org.nisshiee.puyo.core
 
 import org.specs2._
 
-import Storage.PuyoType
+import jp.ac.nagoya_u.is.ss.kishii.usui.system.storage.PuyoType
 
 import scalaz._, Scalaz._
 import Puyos._
