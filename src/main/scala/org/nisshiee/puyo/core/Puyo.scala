@@ -10,7 +10,7 @@ case object Yellow extends Puyo
 case object Purple extends Puyo
 case object Ojama extends Puyo
 
-import Storage.PuyoType
+import jp.ac.nagoya_u.is.ss.kishii.usui.system.storage.PuyoType
 
 object Puyo {
   def puyoSJ: Puyo => PuyoType = {
