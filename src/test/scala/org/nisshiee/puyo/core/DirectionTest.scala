@@ -17,6 +17,10 @@ class DirectionTest extends Specification { def is =
       "→" ! ((Right: Direction).shows ≟ "→" must beTrue) ^
       "←" ! ((Left: Direction).shows ≟ "←" must beTrue) ^
                                                             p^
+    "DirectionEqualのテスト"                                ^
+      "↑ === ↑" ! ((Up: Direction) ≟ (Up: Direction) must beTrue) ^
+      "↑ !== ↓" ! ((Up: Direction) ≟ (Down: Direction) must beFalse) ^
+                                                            p^
     "directionSJのテスト"                                   ^
       "↑ => UP" ! (Direction.directionSJ(Up) must_== PuyoDirection.UP) ^
       "↓ => DOWN" ! (Direction.directionSJ(Down) must_== PuyoDirection.DOWN) ^

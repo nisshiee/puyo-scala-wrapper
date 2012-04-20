@@ -11,6 +11,8 @@ object Directions {
     case Right => "→"
     case Left => "←"
   }
+
+  implicit lazy val DirectionEqual = equalA[Direction]
 }
 
 sealed trait Direction
