@@ -1,10 +1,12 @@
 package org.nisshiee.puyo.core
 
-import org.specs2._
+import org.specs2._, mock._
 
 import scalaz._, Scalaz._
 
 import PuyoBlocks._
+
+import jp.ac.nagoya_u.is.ss.kishii.usui.system.storage.PuyoType
 
 class PuyoBlockTest extends Specification { def is =
 
@@ -20,6 +22,10 @@ class PuyoBlockTest extends Specification { def is =
       "(青赤) !== (緑赤)"                                   ! e3^
       "(青赤) !== (黄緑)"                                   ! e4^
       "(青青) === (青青)"                                   ! e5^
+                                                            p^
+    "puyoBlockJSのテスト"                                   ^
+      "baseがコピーされていること"                          ! JMock().e6^
+      "subがコピーされていること"                          ! JMock().e7^
                                                             end
 
   def e1 = PuyoBlockEqual.equal(
@@ -46,4 +52,14 @@ class PuyoBlockTest extends Specification { def is =
     PuyoBlock(Blue, Blue),
     PuyoBlock(Blue, Blue)
   ) must beTrue
+
+  case class JMock() extends Mockito {
+    val j = mock[JPuyoBlockWrapper]
+    j.base returns PuyoType.RED_PUYO
+    j.sub returns PuyoType.BLUE_PUYO
+
+    def e6 = PuyoBlock.puyoBlockJS(j).base must_== Red
+
+    def e7 = PuyoBlock.puyoBlockJS(j).sub must_== Blue
+  }
 }
