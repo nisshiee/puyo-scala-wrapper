@@ -9,7 +9,7 @@ object Fields {
   implicit def fieldWrap: JField => JFieldWrapper = new JFieldWrapper(_)
 }
 
-class Field private (
+case class Field private (
   val width: Int,
   val height: Int,
   val deadLine: Int,
@@ -23,11 +23,11 @@ object Field {
     val puyoMap = (for {
       x <- 0 until jw.width
       y <- 0 until jw.height
-    } yield (x, y, new InFieldPoint(Point(x, y)))) ∘ {
+    } yield (x, y, InFieldPoint(Point(x, y)))) ∘ {
       case (x, y, p) => Option(jw.puyoType(x, y)) ∘ Puyo.puyoJS ∘ (p -> _)
     } |> (_.flatten.toMap)
 
-    new Field(jw.width, jw.height, jw.deadLine, puyoMap)
+    Field(jw.width, jw.height, jw.deadLine, puyoMap)
   }
 }
 

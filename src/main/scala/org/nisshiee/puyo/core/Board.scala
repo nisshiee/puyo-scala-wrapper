@@ -6,7 +6,7 @@ import scala.collection.JavaConversions
 
 import jp.ac.nagoya_u.is.ss.kishii.usui.system.game.{ Board => JBoard }
 
-class Board private(
+case class Board private (
   val field: Field,
   val current: PuyoBlock,
   val next: PuyoBlock,
@@ -17,7 +17,7 @@ class Board private(
 
 object Board {
   def boardJS: JBoardWrapper => Board = { j =>
-    new Board(
+    Board(
       Field.fieldJS(j.field),
       PuyoBlock.puyoBlockJS(j.currentPuyo),
       PuyoBlock.puyoBlockJS(j.nextPuyo),
