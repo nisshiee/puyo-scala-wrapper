@@ -6,6 +6,8 @@ import scalaz._, Scalaz._
 
 import Actions._
 
+import jp.ac.nagoya_u.is.ss.kishii.usui.system.game.Puyo.PuyoDirection
+
 class ActionTest extends Specification { def is =
 
   "Actionクラスのテスト"                                    ^
@@ -43,6 +45,12 @@ class ActionTest extends Specification { def is =
                                                             p^
     "ActionEqualのテスト"                                    ^
       "↑3 === ↑3"                                         ! JMock().e20^
+      "↑3 !== ↑2"                                         ! JMock().e21^
+      "↑3 !== ↓3"                                         ! JMock().e22^
+                                                            p^
+    "actionSJのテスト"                                      ^
+      "colmNumberがコピーされていること"                    ! JMock().e23^
+      "Directionがコピーされていること"                     ! JMock().e24^
                                                             end
 
   case class JMock() extends Mockito {
@@ -81,5 +89,25 @@ class ActionTest extends Specification { def is =
       a1 <- Action.check(Up, 3)
       a2 <- Action.check(Up, 3)
     } yield (a1 ≟ a2)) must_== Some(true)
+
+    def e21 = (for {
+      a1 <- Action.check(Up, 3)
+      a2 <- Action.check(Up, 2)
+    } yield (a1 ≟ a2)) must_== Some(false)
+
+    def e22 = (for {
+      a1 <- Action.check(Up, 3)
+      a2 <- Action.check(Down, 3)
+    } yield (a1 ≟ a2)) must_== Some(false)
+
+    def e23 = (Action.check(Up, 3)
+               ∘ Action.actionSJ
+               ∘ (_.getColmNumber)
+               must_== Some(3))
+
+    def e24 = (Action.check(Up, 3)
+               ∘ Action.actionSJ
+               ∘ (_.getDirection)
+               must_== Some(PuyoDirection.UP))
   }
 }

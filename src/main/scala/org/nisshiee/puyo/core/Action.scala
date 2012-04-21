@@ -4,6 +4,8 @@ import scalaz._, Scalaz._
 
 import Directions._
 
+import jp.ac.nagoya_u.is.ss.kishii.usui.system.game.{ Action => JAction }
+
 object Actions {
   implicit lazy val ActionShow = shows[Action] { a =>
     a.direction.shows |+| a.col.toString
@@ -14,7 +16,7 @@ object Actions {
   }
 }
 
-class Action private (
+case class Action private (
   val direction: Direction,
   val col: Int
 ) {
@@ -30,8 +32,12 @@ object Action {
     }
 
     range(d) |> { case (b, t) => (c gte b) && (c lt t) } |> {
-      case true => new Action(d, c).some
+      case true => Action(d, c).some
       case false => none
     }
+  }
+
+  def actionSJ: Action => JAction = {
+    case Action(d, c) => new JAction(Direction.directionSJ(d), c)
   }
 }
