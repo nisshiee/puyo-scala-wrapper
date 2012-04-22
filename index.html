@@ -19,7 +19,7 @@
           <a id="forkme_banner" href="https://github.com/nisshiee/puyo-scala-wrapper">Fork Me on GitHub</a>
 
           <h1 id="project_title">puyo-scala-wrapper</h1>
-          <h2 id="project_tagline"></h2>
+          <h2 id="project_tagline">～Ken's Cup 2012～</h2>
 
           <section id="downloads">
             <a class="zip_download_link" href="https://github.com/nisshiee/puyo-scala-wrapper/zipball/master">Download this project as a .zip file</a>
@@ -31,32 +31,58 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+        <h3>Ken's Cup 2012ってなに？</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Ken's Cup 2012は「名古屋大学大学院　情報科学研究科・間瀬研究室主催のプログラミングコンテスト」だそうです。詳しくは以下のページをご覧ください。<p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<ul>
+<li><a href="http://www.kishii.ss.is.nagoya-u.ac.jp/~usui/KensCup2012/about/">Programing Contest - Ken's Cup 2012</a></li>
+</ul>
+
+        <h3>puyo-scala-wrapperってなに？</h3>
+
+<p>Ken's Cup 2012のプログラムは基本Javaで作られていて、参加者もJavaでコーディングすることになってる（C++もいけるのかな？未確認）。で、当然Javaが行けるんだからScalaも行けるだろうと思うわけで、まずシステムから与えられるAPIをラップしてScalaっぽくプレイヤー作成できるようにしたライブラリがpuyo-scala-wrapperというわけ。</p>
+
+        <h3>どうやって使うの？</h3>
+
+<p>「Javaで書くよりScalaの方が良いに決まってる」と思ってこのページをここまで読んでくれた君なら、sbtの使い方ぐらいは知ってるよね。というわけで、sbt設定だけ書いておくね。以下の設定をbuild.sbtあたりに書いておけばあとはsbtがうまくやってくれる。</p>
+
+<pre><code>resolvers += "github nisshiee puyo" at "http://nisshiee.github.com/puyo-scala-wrapper/repo/release/"
+
+libraryDependencies := Seq("org.nisshiee" %% "puyo-scala-wrapper" % "1.0.0")
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>ちなみにScala2.9.1用ビルドしか置いてない。ごめん。</p>
 
-<h3>Designer Templates</h3>
+<h3>どうやってプレイヤー作るの？</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>とりあえずここにscaladocを置いておいたから見て欲しい。</p>
 
-<h3>Rather Drive Stick?</h3>
+<ul>
+<li><a href="doc/1.0.0/index.html">scaladoc - 1.0.0</a></li>
+</ul>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>そこそこの数のクラスがあるように見えるけど、多くはRed、BlueとかUp、Downみたいなcase objectだから、見た目ほど複雑じゃない。</p>
 
-<h3>Authors and Contributors</h3>
+<p>さて、まずはPlayerクラスを見て欲しい。お察しの通り、こいつがabstract classになっていて、jp.ac.nagoya_u.is.ss.kishii.usui.system.game.AbstractPlayerを継承している。だから君はPlayerを継承してプレイヤーを作ればいい。Playerにはいくつかメソッドがあるが、AbstractPlayerから継承されたメソッド群は見なくていい。大事なのは2つのabstractなメンバ(actionとinit)だけだ。これらを実装すればプレイヤーは完成だ。</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<h3>なにがうれしいの？</h3>
 
-<h3>Support or Contact</h3>
+<p>Scalaを知ってる君なら、参照透明で副作用が無いだけで十分うれしいだろう？actionメソッドのシグニチャを見てもらえればすぐわかる。このメソッドは引数のみに依存し、戻り値が全ての結果を表している。美しいだろう？</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>本当はmyBoard, enemyBoardを受け取ってActionを返すだけで十分なのかもしれないが、ターンを跨いで状態を引き継ぐという戦略は計算リソース節約のためにも必要だろうから、state:Aを付けておいた。actionが返した型Aのデータを、次のターンの引数で渡してくれる。0ターン目はないから、1ターン目のactionの引数にはinitが作ったデータが引数に渡されるよ、というわけ。</p>
+
+<p>で、actionメソッド内で扱うデータたちは、全部case classで作ってあって、immutableだ。安全。</p>
+
+<p>あと、個人的に気に入ってるのが、座標クラスね。Java的に扱うと、特定の座標が枠の内部かどうかチェックするのは結構大変で、しかも、チェック漏れがあるとExceptionにつながりやすい。危険だ。だから、「座標」クラスと「枠内であることが保証された座標」クラスは別の型にした。これなら安全だ。「座標」クラスで枠内を探査しようとしたら、コンパイラが止めてくれる。で、この2つのクラスを華麗に扱うのがScalaの本領発揮。僕はScalazが好きだからScalaz使って「座標(1、2)が枠内で、かつそこにぷよがあれば、それを出力する」という処理を書くとこうなる。</p>
+
+<pre><code>implicit val f = myBoard.field
+Point(1, 2).in >>= (f.apply _) ∘ (_.println)</code></pre>
+
+<h3>まとめ</h3>
+
+<p>Ken's Cup 2012のプレイヤーをScalaで書いてみたいと思ったら、使ってみればいいと思う。もし不具合とか見つけたら、twitterで<a href="https://twitter.com/#!/nisshieeorg">@nisshieeorg</a>にmention飛ばしてくれればたぶんなんか反応できる。</p>
+
       </section>
     </div>
 
