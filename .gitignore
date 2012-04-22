@@ -1,0 +1,37 @@
+# use glob syntax.
+syntax: glob
+*.ser
+*.class
+*~
+\#*
+*.bak
+#*.off
+*.old
+
+# eclipse conf file
+.settings
+.classpath
+.project
+.manager
+.scala_dependencies
+.cache
+
+# idea
+.idea
+*.iml
+
+# sbt building
+target/
+project/boot/
+
+# other scm
+.svn
+.CVS
+.hg*
+
+/image
+/propaty.propaties
+
+# switch to regexp syntax.
+#  syntax: regexp
+#  ^\.pc/
