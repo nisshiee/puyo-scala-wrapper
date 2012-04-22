@@ -2,10 +2,7 @@ package org.nisshiee.puyo.core
 
 import org.specs2._, mock._
 
-import scalaz._, Scalaz._
-
-import InFieldPoints._
-import Points._
+import scalaz._, Scalaz._, Puyoz._
 
 class InFieldPointTest extends Specification { def is =
 

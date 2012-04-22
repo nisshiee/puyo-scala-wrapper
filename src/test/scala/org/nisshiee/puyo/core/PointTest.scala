@@ -2,9 +2,7 @@ package org.nisshiee.puyo.core
 
 import org.specs2._, mock._
 
-import scalaz._, Scalaz._
-
-import Points._
+import scalaz._, Scalaz._, Puyoz._
 
 class PointTest extends Specification { def is =
 

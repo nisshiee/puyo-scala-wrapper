@@ -2,7 +2,7 @@ package org.nisshiee.puyo.core
 
 import scalaz._, Scalaz._
 
-object Points {
+trait Points {
   implicit lazy val PointShow = shows[Point] {
     case Point(x, y) => "(" |+| x.shows |+| ", " |+| y.shows |+| ")"
   }
@@ -18,9 +18,8 @@ object Points {
   implicit lazy val PointZero = zero[Point](Point(0, 0))
 }
 
-case class Point(x: Int, y: Int) {
-  import Points._
-  
+case class Point(x: Int, y: Int) extends Points {
+
   def +(p: => Point) = this |+| p
 
   def unary_- = Point(-this.x, -this.y)

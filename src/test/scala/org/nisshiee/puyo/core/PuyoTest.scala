@@ -4,8 +4,7 @@ import org.specs2._
 
 import jp.ac.nagoya_u.is.ss.kishii.usui.system.storage.PuyoType
 
-import scalaz._, Scalaz._
-import Puyos._
+import scalaz._, Scalaz._, Puyoz._
 
 class PuyoTest extends Specification { def is =
   "Puyoケースクラスのテスト"                                ^
