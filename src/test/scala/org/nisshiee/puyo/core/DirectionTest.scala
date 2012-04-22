@@ -2,11 +2,9 @@ package org.nisshiee.puyo.core
 
 import org.specs2._
 
-import scalaz._, Scalaz._
+import scalaz._, Scalaz._, Puyoz._
 
 import jp.ac.nagoya_u.is.ss.kishii.usui.system.game.Puyo.PuyoDirection
-
-import Directions._
 
 class DirectionTest extends Specification { def is =
 

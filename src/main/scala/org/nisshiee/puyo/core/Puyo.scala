@@ -34,7 +34,7 @@ object Puyo {
   val colors = List(Blue, Red, Green, Yellow, Purple)
 }
 
-object Puyos {
+trait Puyos {
   implicit lazy val PuyoShow = shows[Puyo] {
     case Blue => "青"
     case Red => "赤"

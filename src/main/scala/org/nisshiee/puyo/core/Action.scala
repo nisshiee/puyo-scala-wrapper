@@ -2,11 +2,10 @@ package org.nisshiee.puyo.core
 
 import scalaz._, Scalaz._
 
-import Directions._
-
 import jp.ac.nagoya_u.is.ss.kishii.usui.system.game.{ Action => JAction }
 
-object Actions {
+trait Actions extends Directions {
+
   implicit lazy val ActionShow = shows[Action] { a =>
     a.direction.shows |+| a.col.toString
   }

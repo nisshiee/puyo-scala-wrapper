@@ -1,14 +1,14 @@
 package org.nisshiee.puyo.core
 
 import scalaz._, Scalaz._
+import Puyoz._
 
 import jp.ac.nagoya_u.is.ss.kishii.usui.system.game.{ Puyo => JPuyoBlock }
 import jp.ac.nagoya_u.is.ss.kishii.usui.system.game.Puyo.PuyoNumber
 
 case class PuyoBlock(base: Puyo, sub: Puyo)
 
-object PuyoBlocks {
-  import Puyos._
+trait PuyoBlocks extends Puyos {
 
   implicit lazy val PuyoBlockShow = shows[PuyoBlock] {
     case PuyoBlock(base, sub) => "(" |+| base.shows |+| sub.shows |+| ")"

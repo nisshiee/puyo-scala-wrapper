@@ -2,9 +2,7 @@ package org.nisshiee.puyo.core
 
 import org.specs2._, mock._
 
-import scalaz._, Scalaz._
-
-import PuyoBlocks._
+import scalaz._, Scalaz._, Puyoz._
 
 import jp.ac.nagoya_u.is.ss.kishii.usui.system.storage.PuyoType
 

@@ -4,7 +4,7 @@ import scalaz._, Scalaz._
 
 import jp.ac.nagoya_u.is.ss.kishii.usui.system.game.Puyo.PuyoDirection
 
-object Directions {
+trait Directions {
   implicit lazy val DirectionShow = shows[Direction] {
     case Up => "↑"
     case Down => "↓"
