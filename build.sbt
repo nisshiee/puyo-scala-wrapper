@@ -2,7 +2,7 @@ name := "puyo-scala-wrapper"
 
 organization := "org.nisshiee"
 
-version := "1.0.0"
+version := "1.0.1"
 
 scalaVersion := "2.9.1"
 
@@ -19,5 +19,4 @@ testOptions in (Test, test) += Tests.Argument("console", "html", "junitxml")
 initialCommands := """
 import scalaz._
 import Scalaz._
-import Path._
 """
