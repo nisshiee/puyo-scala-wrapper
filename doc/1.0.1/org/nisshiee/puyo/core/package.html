@@ -1,0 +1,443 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>org.nisshiee.puyo.core</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link type="text/css" media="screen" rel="stylesheet" href="../../../../lib/template.css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../lib/package_big.png" />
+        <p id="owner"><a name="org" class="extype" href="../../../package.html">org</a>.<a name="org.nisshiee" class="extype" href="../../package.html">nisshiee</a>.<a name="org.nisshiee.puyo" class="extype" href="../package.html">puyo</a></p>
+        <h1>core</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">package</span>
+      <span class="symbol"> 
+        <span class="name">core</span>
+        
+        
+      </span>
+      </h4>
+      
+          <div class="fullcommenttop" id="comment"></div>
+        
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          
+          
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+
+        
+
+        <div class="types members" id="types">
+              <h3>Type Members</h3>
+              <ol><li visbl="pub" name="org.nisshiee.puyo.core.Action" data-isabs="false">
+      <a id="Action:Action"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="Action.html"><span class="name">Action</span></a>
+        
+        <span class="params">(<span name="direction">direction: Direction</span>, <span name="col">col: Int</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Actions" data-isabs="true">
+      <a id="Actions:Actions"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Actions.html"><span class="name">Actions</span></a>
+        
+        <span class="result"> extends Directions</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Board" data-isabs="false">
+      <a id="Board:Board"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="Board.html"><span class="name">Board</span></a>
+        
+        <span class="params">(<span name="field">field: Field</span>, <span name="current">current: PuyoBlock</span>, <span name="next">next: PuyoBlock</span>, <span name="nextNext">nextNext: PuyoBlock</span>, <span name="ojamaQueue">ojamaQueue: List[Int]</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Direction" data-isabs="true">
+      <a id="Direction:Direction"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Direction.html"><span class="name">Direction</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>sealed </dd></dl></div>
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Directions" data-isabs="true">
+      <a id="Directions:Directions"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Directions.html"><span class="name">Directions</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Field" data-isabs="false">
+      <a id="Field:Field"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="Field.html"><span class="name">Field</span></a>
+        
+        <span class="params">(<span name="width">width: Int</span>, <span name="height">height: Int</span>, <span name="deadLine">deadLine: Int</span>, <span name="puyos">puyos: Map[InFieldPoint, Puyo]</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Fields" data-isabs="true">
+      <a id="Fields:Fields"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Fields.html"><span class="name">Fields</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.InFieldPoint" data-isabs="false">
+      <a id="InFieldPoint:InFieldPoint"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="InFieldPoint.html"><span class="name">InFieldPoint</span></a>
+        
+        <span class="params">(<span name="p">p: Point</span>)</span><span class="result"> extends InFieldPoints with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.InFieldPoints" data-isabs="true">
+      <a id="InFieldPoints:InFieldPoints"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="InFieldPoints.html"><span class="name">InFieldPoints</span></a>
+        
+        <span class="result"> extends Points</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Player" data-isabs="true">
+      <a id="Player:Player[A]"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Player.html"><span class="name">Player</span></a>
+        <span class="tparams">[<span name="A">A</span>]</span>
+        <span class="result"> extends AbstractPlayer</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Point" data-isabs="false">
+      <a id="Point:Point"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="Point.html"><span class="name">Point</span></a>
+        
+        <span class="params">(<span name="x">x: Int</span>, <span name="y">y: Int</span>)</span><span class="result"> extends Points with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Points" data-isabs="true">
+      <a id="Points:Points"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Points.html"><span class="name">Points</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Puyo" data-isabs="true">
+      <a id="Puyo:Puyo"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Puyo.html"><span class="name">Puyo</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>sealed </dd></dl></div>
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.PuyoBlock" data-isabs="false">
+      <a id="PuyoBlock:PuyoBlock"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="PuyoBlock.html"><span class="name">PuyoBlock</span></a>
+        
+        <span class="params">(<span name="base">base: Puyo</span>, <span name="sub">sub: Puyo</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.PuyoBlocks" data-isabs="true">
+      <a id="PuyoBlocks:PuyoBlocks"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="PuyoBlocks.html"><span class="name">PuyoBlocks</span></a>
+        
+        <span class="result"> extends Puyos</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Puyos" data-isabs="true">
+      <a id="Puyos:Puyos"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Puyos.html"><span class="name">Puyos</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+        
+        
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" name="org.nisshiee.puyo.core.Action" data-isabs="false">
+      <a id="Action:Action"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Action$.html"><span class="name">Action</span></a>
+        
+        <span class="result"> extends Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Blue" data-isabs="false">
+      <a id="Blue:Blue"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Blue$.html"><span class="name">Blue</span></a>
+        
+        <span class="result"> extends Puyo with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Board" data-isabs="false">
+      <a id="Board:Board"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Board$.html"><span class="name">Board</span></a>
+        
+        <span class="result"> extends Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Direction" data-isabs="false">
+      <a id="Direction:Direction"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Direction$.html"><span class="name">Direction</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Down" data-isabs="false">
+      <a id="Down:Down"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Down$.html"><span class="name">Down</span></a>
+        
+        <span class="result"> extends Direction with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Field" data-isabs="false">
+      <a id="Field:Field"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Field$.html"><span class="name">Field</span></a>
+        
+        <span class="result"> extends Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Green" data-isabs="false">
+      <a id="Green:Green"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Green$.html"><span class="name">Green</span></a>
+        
+        <span class="result"> extends Puyo with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.InFieldPoint" data-isabs="false">
+      <a id="InFieldPoint:InFieldPoint"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="InFieldPoint$.html"><span class="name">InFieldPoint</span></a>
+        
+        <span class="result"> extends Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Left" data-isabs="false">
+      <a id="Left:Left"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Left$.html"><span class="name">Left</span></a>
+        
+        <span class="result"> extends Direction with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Ojama" data-isabs="false">
+      <a id="Ojama:Ojama"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Ojama$.html"><span class="name">Ojama</span></a>
+        
+        <span class="result"> extends Puyo with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Purple" data-isabs="false">
+      <a id="Purple:Purple"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Purple$.html"><span class="name">Purple</span></a>
+        
+        <span class="result"> extends Puyo with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Puyo" data-isabs="false">
+      <a id="Puyo:Puyo"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Puyo$.html"><span class="name">Puyo</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.PuyoBlock" data-isabs="false">
+      <a id="PuyoBlock:PuyoBlock"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="PuyoBlock$.html"><span class="name">PuyoBlock</span></a>
+        
+        <span class="result"> extends Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Puyoz" data-isabs="false">
+      <a id="Puyoz:Puyoz"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Puyoz$.html"><span class="name">Puyoz</span></a>
+        
+        <span class="result"> extends Puyos with PuyoBlocks with Points with InFieldPoints with Fields with Directions with Actions</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Red" data-isabs="false">
+      <a id="Red:Red"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Red$.html"><span class="name">Red</span></a>
+        
+        <span class="result"> extends Puyo with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Right" data-isabs="false">
+      <a id="Right:Right"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Right$.html"><span class="name">Right</span></a>
+        
+        <span class="result"> extends Direction with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Up" data-isabs="false">
+      <a id="Up:Up"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Up$.html"><span class="name">Up</span></a>
+        
+        <span class="result"> extends Direction with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="org.nisshiee.puyo.core.Yellow" data-isabs="false">
+      <a id="Yellow:Yellow"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Yellow$.html"><span class="name">Yellow</span></a>
+        
+        <span class="result"> extends Puyo with Product with Serializable</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>
