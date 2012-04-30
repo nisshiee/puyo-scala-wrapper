@@ -30,7 +30,7 @@ project/boot/
 .hg*
 
 /image
-/propaty.propaties
+/property.properties
 
 # switch to regexp syntax.
 #  syntax: regexp
